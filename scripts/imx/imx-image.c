@@ -993,13 +993,12 @@ int main(int argc, char *argv[])
 		xwrite(outfd, add_barebox_header ? bb_header : buf,
 		       sizeof_bb_header);
 
-		if (lseek(outfd, data.header_gap, SEEK_CUR) < 0) {
+		if (lseek(outfd, data.header_gap, SEEK_SET) < 0) {
 			perror("lseek");
 			exit(1);
 		}
 
-		xwrite(outfd, buf + sizeof_bb_header,
-		       header_len - sizeof_bb_header);
+		xwrite(outfd, buf, header_len);
 	}
 
 	xwrite(outfd, infile, insize);
