@@ -1,0 +1,71 @@
+/*
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+#include <arm/imx7d-pico.dtsi>
+
+/ {
+	model = "TechNexion PICO-IMX7D Board";
+	compatible = "technexion,imx7d-pico", "fsl,imx7d";
+
+	chosen {
+		stdout-path = &uart5;
+
+		environment {
+			compatible = "barebox,environment";
+			device-path = &bareboxenv;
+		};
+	};
+
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x80000000 0x20000000>;
+	};
+
+	aliases {
+		mmc0 = &usdhc3;
+	};
+};
+
+&usdhc3 {
+	boot0-partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		barebox@0 {
+			label = "barebox";
+			reg = <0x0 0x300000>;
+		};
+
+		bareboxenv: bareboxenv@300000 {
+			label = "bareboxenv";
+			reg = <0x300000 0x0>;
+		};
+	};
+};
+
+&usbotg1 {
+	dr_mode = "peripheral";
+};
+
+/* FIXME: barebox serial is broken when barebox applies requested reparenting */
+&uart4  {
+	/delete-property/ assigned-clocks;
+	/delete-property/ assigned-clock-parents;
+};
+
+&uart5  {
+	/delete-property/ assigned-clocks;
+	/delete-property/ assigned-clock-parents;
+};
+
+&uart6 {
+	/delete-property/ assigned-clocks;
+	/delete-property/ assigned-clock-parents;
+};

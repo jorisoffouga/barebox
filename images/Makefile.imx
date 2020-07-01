@@ -354,6 +354,11 @@ CFG_start_phytec_phycore_imx7.pblb.imximg = $(board)/phytec-phycore-imx7/flash-h
 FILE_barebox-phytec-phycore-imx7.img = start_phytec_phycore_imx7.pblb.imximg
 image-$(CONFIG_MACH_PHYTEC_PHYCORE_IMX7) += barebox-phytec-phycore-imx7.img
 
+pblb-$(CONFIG_MACH_TECHNEXION_PICO_IMX7D) += start_imx7d_pico
+CFG_start_imx7d_pico.pblb.imximg = $(board)/technexion-pico-imx7d/flash-header-pico-imx7d.imxcfg
+FILE_barebox-technexion-pico-imx7d.img = start_imx7d_pico.pblb.imximg
+image-$(CONFIG_MACH_TECHNEXION_PICO_IMX7D) += barebox-technexion-pico-imx7d.img
+
 pblb-$(CONFIG_MACH_WARP7) += start_imx7s_element14_warp7
 CFG_start_imx7s_element14_warp7.pblb.imximg = $(board)/element14-warp7/flash-header-mx7-warp.imxcfg
 FILE_barebox-element14-imx7s-warp7.img = start_imx7s_element14_warp7.pblb.imximg

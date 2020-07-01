@@ -406,6 +406,10 @@ config MACH_TECHNEXION_WANDBOARD
 	select ARM_USE_COMPRESSED_DTB
 	select MCI_IMX_ESDHC_PBL
 
+config MACH_TECHNEXION_PICO_IMX7D
+	bool "Technexion Pico i.MX7D"
+	select ARCH_IMX7
+
 config MACH_EMBEST_MARSBOARD
 	bool "Embest MarSboard"
 	select ARCH_IMX6

@@ -132,6 +132,7 @@ obj-$(CONFIG_MACH_STM32MP157C_DK2)		+= stm32mp157c-dk2/
 obj-$(CONFIG_MACH_LXA_MC1)			+= lxa-mc1/
 obj-$(CONFIG_MACH_TECHNEXION_PICO_HOBBIT)	+= technexion-pico-hobbit/
 obj-$(CONFIG_MACH_TECHNEXION_WANDBOARD)		+= technexion-wandboard/
+obj-$(CONFIG_MACH_TECHNEXION_PICO_IMX7D) += technexion-pico-imx7d/
 obj-$(CONFIG_MACH_TNY_A9260)			+= tny-a926x/
 obj-$(CONFIG_MACH_TNY_A9263)			+= tny-a926x/
 obj-$(CONFIG_MACH_TNY_A9G20)			+= tny-a926x/
